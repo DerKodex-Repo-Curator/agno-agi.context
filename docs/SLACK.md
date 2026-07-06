@@ -11,7 +11,7 @@ The setup below also turns on two things beyond the chat interface: the `update_
 
 ## Prerequisites
 
-- @context running locally or in production (see [README#run-in-production](../README.md#run-in-production))
+- @context running locally or in production (see [README#deploy](../README.md#deploy))
 - A Slack workspace where you can install @context
 - [ngrok](https://ngrok.com/download) installed and running if you are running @context locally [not needed for production]
 
@@ -156,7 +156,7 @@ how are you?
 
 If you first set @context up against a local ngrok URL, your Slack app is still pointed at your local AgentOS — events stop reaching it the moment ngrok closes. To switch the app to your deployed instance, repoint the two request URLs at your AgentOS (Railway) domain:
 
-1. Make sure @context is already deployed and serving in production (see [README#run-in-production](../README.md#run-in-production)).
+1. Make sure @context is already deployed and serving in production (see [README#deploy](../README.md#deploy)).
 2. Confirm `SLACK_BOT_TOKEN`, `SLACK_SIGNING_SECRET`, and your `OWNER_ID` (with your Slack email) are in `.env.production`, then run `./scripts/railway/env-sync.sh` so the deployed instance has them.
 3. Go to [api.slack.com/apps](https://api.slack.com/apps) → your app.
 4. **Event Subscriptions** → set **Request URL** to `https://<your-railway-domain>/slack/events` and wait for the green **Verified**.
